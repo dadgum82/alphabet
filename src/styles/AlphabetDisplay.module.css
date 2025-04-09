@@ -1,0 +1,39 @@
+/* src/styles/AlphabetDisplay.module.css */
+.alphabetContainer {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.letterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Base letter styling - will be modified by team members */
+.letter {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.letter:hover {
+    transform: scale(1.1);
+}
+
+/* Team Member 1: A-E styling (red theme) */
+/* Team Member 2: F-J styling (blue theme) */
+/* Team Member 3: K-O styling (green theme) */
+/* Team Member 4: P-T styling (purple theme) */
+/* Team Member 5: U-Z styling (orange theme) */
