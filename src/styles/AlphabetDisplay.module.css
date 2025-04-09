@@ -1,20 +1,26 @@
-/* src/styles/AlphabetDisplay.module.css */
 .alphabetContainer {
-    margin: 20px auto;
+    margin: 0 auto; /* Center horizontally with auto margins */
     max-width: 800px;
     text-align: center;
     font-family: Arial, sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
 }
 
 .letterContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; /* Center letters horizontally */
+    align-items: center; /* Center letters vertically */
     margin-top: 20px;
+    width: 100%;
 }
 
-/* Base letter styling - will be modified by team members */
 .letter {
+    position: relative;
     width: 50px;
     height: 50px;
     margin: 5px;
@@ -25,15 +31,48 @@
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .letter:hover {
     transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* In AlphabetDisplay.module.css - Team Member 1 Changes */
-/* Team Member 1: A-E styling (red theme) */
+.letter.active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.phrase {
+    position: absolute;
+    top: 60px;
+    left: -100px;
+    width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    text-align: left;
+}
+
+.phrase p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: normal;
+}
+
+.icon {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* Make sure these existing styles from your original file are included */
 .sectionAE {
     display: flex;
     margin-bottom: 10px;

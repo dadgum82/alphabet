@@ -1,15 +1,48 @@
 "use client";
 
-import React from 'react';
+import React, {JSX, useState} from 'react';
 import styles from '../styles/AlphabetDisplay.module.css';
 
 const AlphabetDisplay: React.FC = () => {
-    // Properly defined function with TypeScript typing
-    const handleLetterClick = (letter: string): void => {
-        alert(`${letter} was clicked!`);
+    // State to track which letter is currently showing its phrase
+    const [activeLetter, setActiveLetter] = useState<string | null>(null);
+
+    // Old McDonald phrases for each letter
+    const letterPhrases: Record<string, { animal: string, sound: string, icon: string }> = {
+        'A': { animal: 'Alligator', sound: 'snap snap', icon: '🐊' },
+        'B': { animal: 'Bear', sound: 'growl growl', icon: '🐻' },
+        'C': { animal: 'Cow', sound: 'moo moo', icon: '🐄' },
+        'D': { animal: 'Duck', sound: 'quack quack', icon: '🦆' },
+        'E': { animal: 'Elephant', sound: 'trumpet trumpet', icon: '🐘' },
     };
 
-const AlphabetDisplay: React.FC = () => {
+    // Improved click handler
+    const handleLetterClick = (letter: string): void => {
+        if (activeLetter === letter) {
+            // If clicking the same letter, hide the phrase
+            setActiveLetter(null);
+        } else {
+            // Show phrase for this letter
+            setActiveLetter(letter);
+        }
+    };
+
+    // Generate the phrase for a letter
+    const getPhrase = (letter: string): JSX.Element | null => {
+        if (!letterPhrases[letter]) return null;
+
+        const { animal, sound, icon } = letterPhrases[letter];
+        return (
+            <div className={styles.phrase}>
+                <span className={styles.icon}>{icon}</span>
+                <p>Old McDonald had a farm, E-I-E-I-O!</p>
+                <p>And on that farm he had a {animal}, E-I-E-I-O!</p>
+                <p>With a {sound} {sound} here, and a {sound} {sound} there.</p>
+                <p>Here a {sound}, there a {sound}, everywhere a {sound} {sound}!</p>
+            </div>
+        );
+    };
+
     return (
         <div className={styles.alphabetContainer}>
             <h1>Alphabet Display</h1>
@@ -17,34 +50,39 @@ const AlphabetDisplay: React.FC = () => {
                 {/* Team Member 1: Implement A-E letters */}
                 <div className={styles.sectionAE}>
                     <div
-                        className={`${styles.letter} ${styles.letterA}`}
+                        className={`${styles.letter} ${styles.letterA} ${activeLetter === 'A' ? styles.active : ''}`}
                         onClick={() => handleLetterClick('A')}
                     >
                         A
+                        {activeLetter === 'A' && getPhrase('A')}
                     </div>
                     <div
-                        className={`${styles.letter} ${styles.letterB}`}
+                        className={`${styles.letter} ${styles.letterB} ${activeLetter === 'B' ? styles.active : ''}`}
                         onClick={() => handleLetterClick('B')}
                     >
                         B
+                        {activeLetter === 'B' && getPhrase('B')}
                     </div>
                     <div
-                        className={`${styles.letter} ${styles.letterC}`}
+                        className={`${styles.letter} ${styles.letterC} ${activeLetter === 'C' ? styles.active : ''}`}
                         onClick={() => handleLetterClick('C')}
                     >
                         C
+                        {activeLetter === 'C' && getPhrase('C')}
                     </div>
                     <div
-                        className={`${styles.letter} ${styles.letterD}`}
+                        className={`${styles.letter} ${styles.letterD} ${activeLetter === 'D' ? styles.active : ''}`}
                         onClick={() => handleLetterClick('D')}
                     >
                         D
+                        {activeLetter === 'D' && getPhrase('D')}
                     </div>
                     <div
-                        className={`${styles.letter} ${styles.letterE}`}
+                        className={`${styles.letter} ${styles.letterE} ${activeLetter === 'E' ? styles.active : ''}`}
                         onClick={() => handleLetterClick('E')}
                     >
                         E
+                        {activeLetter === 'E' && getPhrase('E')}
                     </div>
                 </div>
                 {/* Team Member 2: Implement F-J letters */}
