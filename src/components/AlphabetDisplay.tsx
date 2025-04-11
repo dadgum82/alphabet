@@ -45,7 +45,7 @@ const AlphabetDisplay: React.FC = () => {
 
     return (
         <div className={styles.alphabetContainer}>
-            <h1>Alphabet Display</h1>
+            <h1 className={styles.farmTitle}>The Farm</h1>
             <div className={styles.letterContainer}>
                 {/* Team Member 1: Implement A-E letters */}
                 <div className={styles.sectionAE}>
