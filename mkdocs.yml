@@ -1,0 +1,6 @@
+site_name: Alphabet
+site_description: Alphabet application documentation
+plugins:
+  - techdocs-core
+nav:
+  - Home: index.md
