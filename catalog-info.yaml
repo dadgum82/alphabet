@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: alphabet
+  description: Alphabet application
+  annotations:
+    github.com/project-slug: dadgum82/alphabet
+spec:
+  type: website
+  owner: group:default/admins
+  lifecycle: experimental
